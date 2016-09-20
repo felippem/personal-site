@@ -39,3 +39,6 @@ bower_components
 
 # User settings
 .vscode
+
+# Optional files
+transpiled.css

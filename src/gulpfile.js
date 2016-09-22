@@ -8,7 +8,9 @@ var gulp = require('gulp'),
   cleancss = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   gutil = require('gulp-util'),
-  browsersync = require('browser-sync').create();
+  browsersync = require('browser-sync').create(),
+  inject = require('gulp-inject'),
+  clean = require('gulp-clean');
 
 /**
  * Task responsável por executar a sincronização com o browser.
@@ -22,7 +24,7 @@ gulp.task('browsersync', function () {
 });
 
 /**
- * Task responsável por minificar o conteúdo dos aquivos .css.
+ * Task responsável por concatenar e minificar o conteúdo dos aquivos .css.
  * Use: $ gulp css @optional-parameters
  *  @optional-parameters: --type production
  */
@@ -31,6 +33,37 @@ gulp.task('css', function () {
     .pipe(concat('all.min.css'))
     .pipe(gutil.env.type === 'production' ? cleancss({ compatibility: 'ie8' }) : gutil.noop())
     .pipe(gulp.dest('./public/stylesheets'));
+});
+
+/**
+ * Task responsável por concatenar os arquivos .js de terceiros.
+ * Use: $ gulp concat-vendor-js
+ */
+gulp.task('concat-vendor-js', function () {
+  gulp.src('public/lib/*.*', { read: false })
+        .pipe(clean({ force: true }));
+
+  return gulp.src(['./bower_components/**/dist/**/*.min.js', 
+    './bower_components/angular/*.min.js',
+    '!./bower_components/**/*slim.*'])
+    .pipe(rename({ dirname: '' }))
+    .pipe(concat('vendor.min.js'))
+    .pipe(gulp.dest('public/libs'));
+});
+
+/**
+ * Task responsável por concatenar os arquivos .css de terceiros.
+ * Use: $ gulp concat-vendor-css
+ */
+gulp.task('concat-vendor-css', function () {
+  gulp.src('public/lib/**/*.*', { read: false })
+        .pipe(clean({ force: true }));
+
+  return gulp.src(['./bower_components/**/dist/**/*.min.css', 
+    '!./bower_components/**/dist/**/*-theme*'])
+    .pipe(rename({ dirname: '' }))
+    .pipe(concat('vendor.min.css'))
+    .pipe(gulp.dest('public/libs/css'));
 });
 
 /**
@@ -48,7 +81,7 @@ gulp.task('default', ['exec']);
  * Use: $ gulp exec @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('exec', ['sass', 'js'], function () {
+gulp.task('exec', ['sass', 'js', 'inject-vendor'], function () {
   return nodemon({
     script: 'server/server.js',
     env: { 'NODE_ENV': 'development' },
@@ -60,7 +93,21 @@ gulp.task('exec', ['sass', 'js'], function () {
 });
 
 /**
- * Task responsável por transpilar e minificar os arquivos .js.
+ * Task responsável por injetar os .js e .css de terceiros, nas views.
+ * Use: $ gulp inject-vendor-js
+ */
+gulp.task('inject-vendor', ['concat-vendor-js', 'concat-vendor-css'], function () {
+  var sources = gulp.src(['public/libs/*.*', 'public/libs/**/*.*'], { read: false, relative: true });
+  
+  return gulp.src('views/**/index.*')
+    .pipe(inject(sources, { ignorePath: 'public', addRootSlash: true }))
+    .pipe(gulp.dest(function (file) {
+      return file.base;
+    }));
+});
+
+/**
+ * Task responsável por transpilar, concatenar e minificar os arquivos .js.
  * Obs: A transipilação é realizada através do gulp-babel, assim, qualquer feature
  * do ES6, será convertida para a última versão do ES, sendo assim compatível com os
  * navegadores que ainda não suportam o ES6.

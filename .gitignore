@@ -42,3 +42,5 @@ bower_components
 
 # Optional files
 transpiled.css
+**/public/libs
+**/public/**/all.min.*

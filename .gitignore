@@ -41,6 +41,6 @@ bower_components
 .vscode
 
 # Optional files
-transpiled.css
+**/assets/**/processed.css
 **/public/libs
 **/public/**/all.min.*

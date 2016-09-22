@@ -137,7 +137,7 @@ gulp.task('sass', ['css', 'sass:watch'], function () {
 
   return gulp.src('./assets/sass/*.scss')
     .pipe(sass(gutil.env.type === 'production' ? options : null).on('error', sass.logError))
-    .pipe(rename('transpiled.css'))
+    .pipe(rename('processed.css'))
     .pipe(gulp.dest('./assets/stylesheets'))
     .pipe(browsersync.reload({
       stream: true

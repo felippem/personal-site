@@ -43,9 +43,11 @@ gulp.task('concat-vendor-js', function () {
   gulp.src('public/libs/*.*', { read: false })
     .pipe(clean({ force: true }));
 
-  return gulp.src(['./bower_components/**/dist/**/*.min.js', 
+  return gulp.src(['./bower_components/jquery/*.min.js',
+    './bower_components/**/dist/**/*.min.js', 
     './bower_components/angular*/*.min.js',
-    '!./bower_components/**/*slim.*'])
+    '!./bower_components/**/*slim.*',
+    '!./bower_components/**/*migrate.*'])
     .pipe(rename({ dirname: '' }))
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest('public/libs'));

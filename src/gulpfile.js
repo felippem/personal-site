@@ -40,11 +40,11 @@ gulp.task('css', function () {
  * Use: $ gulp concat-vendor-js
  */
 gulp.task('concat-vendor-js', function () {
-  gulp.src('public/lib/*.*', { read: false })
-        .pipe(clean({ force: true }));
+  gulp.src('public/libs/*.*', { read: false })
+    .pipe(clean({ force: true }));
 
   return gulp.src(['./bower_components/**/dist/**/*.min.js', 
-    './bower_components/angular/*.min.js',
+    './bower_components/angular*/*.min.js',
     '!./bower_components/**/*slim.*'])
     .pipe(rename({ dirname: '' }))
     .pipe(concat('vendor.min.js'))
@@ -56,8 +56,8 @@ gulp.task('concat-vendor-js', function () {
  * Use: $ gulp concat-vendor-css
  */
 gulp.task('concat-vendor-css', function () {
-  gulp.src('public/lib/**/*.*', { read: false })
-        .pipe(clean({ force: true }));
+  gulp.src('public/libs/css/*.*', { read: false })
+    .pipe(clean({ force: true }));
 
   return gulp.src(['./bower_components/**/dist/**/*.min.css', 
     '!./bower_components/**/dist/**/*-theme*'])
@@ -114,7 +114,7 @@ gulp.task('inject-vendor', ['concat-vendor-js', 'concat-vendor-css'], function (
  * Use: $ gulp js @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('js', function () {
+gulp.task('js', ['js:watch'], function () {
   return gulp.src('./assets/**/*.js')
     .pipe(babel({
       presets: [es2015]
@@ -122,6 +122,15 @@ gulp.task('js', function () {
     .pipe(concat('all.min.js'))
     .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
     .pipe(gulp.dest('./public/javascripts'));
+});
+
+/**
+ * Task responsável por monitorar qualquer atualização nos arquivos .js em assets.
+ * Use: $ gulp js:watch @optional-parameters
+ *  @optional-parameters: --type production
+ */
+gulp.task('js:watch', function () {
+  gulp.watch('./assets/**/*.js', ['js']);
 });
 
 /**

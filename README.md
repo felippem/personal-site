@@ -22,17 +22,17 @@ O projeto está sendo desenvolvido com o objetivo de compartilhar o meu perfil p
 
 Com o ambiente devidamente configurado, execute os comandos:
 
-1. Instale os pacotes do NPM
+* Instale os pacotes do NPM
 
-`$ **npm install**`
+`$ npm install`
 
-2. Instale os pacotes do Bower
+* Instale os pacotes do Bower
 
-`$ **bower install**`
+`$ bower install`
 
-3. Execute o projeto via Gulp
+* Execute o projeto via Gulp
 
-`$ **gulp**`
+`$ gulp`
 
 ### Observações
 

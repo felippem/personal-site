@@ -37,9 +37,9 @@ gulp.task('css', function () {
 
 /**
  * Task responsável por concatenar os arquivos .js de terceiros.
- * Use: $ gulp concat-vendor-js
+ * Use: $ gulp vendor-js
  */
-gulp.task('concat-vendor-js', function () {
+gulp.task('vendor-js', function () {
   gulp.src('public/libs/*.*', { read: false })
     .pipe(clean({ force: true }));
 
@@ -55,9 +55,9 @@ gulp.task('concat-vendor-js', function () {
 
 /**
  * Task responsável por concatenar os arquivos .css de terceiros.
- * Use: $ gulp concat-vendor-css
+ * Use: $ gulp vendor-css
  */
-gulp.task('concat-vendor-css', function () {
+gulp.task('vendor-css', function () {
   gulp.src('public/libs/css/*.*', { read: false })
     .pipe(clean({ force: true }));
 
@@ -83,7 +83,7 @@ gulp.task('default', ['exec']);
  * Use: $ gulp exec @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('exec', ['sass', 'js', 'inject-vendor'], function () {
+gulp.task('exec', ['sass', 'js', 'inject-vendor', 'inject'], function () {
   return nodemon({
     script: 'server/server.js',
     env: { 'NODE_ENV': 'development' },
@@ -96,10 +96,25 @@ gulp.task('exec', ['sass', 'js', 'inject-vendor'], function () {
 
 /**
  * Task responsável por injetar os .js e .css de terceiros, nas views.
- * Use: $ gulp inject-vendor-js
+ * Use: $ gulp inject-vendor
  */
-gulp.task('inject-vendor', ['concat-vendor-js', 'concat-vendor-css'], function () {
+gulp.task('inject-vendor', ['vendor-js', 'vendor-css'], function () {
   var sources = gulp.src(['public/libs/*.*', 'public/libs/**/*.*'], { read: false, relative: true });
+  
+  return gulp.src('views/**/index.*')
+    .pipe(inject(sources, { ignorePath: 'public', name: 'vendor', addRootSlash: true }))
+    .pipe(gulp.dest(function (file) {
+      return file.base;
+    }));
+});
+
+/**
+ * Task responsável por injetar os .js e .css, nas views.
+ * Use: $ gulp inject
+ */
+gulp.task('inject', function () {
+  var sources = gulp.src(['!public/libs/*.*', '!public/libs/**/*.*', 
+    'public/**/*.js', 'public/**/*.css'], { read: false, relative: true });
   
   return gulp.src('views/**/index.*')
     .pipe(inject(sources, { ignorePath: 'public', addRootSlash: true }))

@@ -31,7 +31,9 @@ gulp.task('browsersync', function () {
 gulp.task('css', function () {
   return gulp.src('./assets/**/*.css')
     .pipe(concat('all.min.css'))
-    .pipe(gutil.env.type === 'production' ? cleancss({ compatibility: 'ie8' }) : gutil.noop())
+    .pipe(gutil.env.type === 'production' ? cleancss({ 
+      compatibility: 'ie8', 
+      keepSpecialComments: 0 }) : gutil.noop())
     .pipe(gulp.dest('./public/stylesheets'));
 });
 

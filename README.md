@@ -24,15 +24,15 @@ Com o ambiente devidamente configurado, execute os comandos:
 
 * Instale os pacotes do NPM
 
-`$ npm install`
+  `$ npm install`
 
 * Instale os pacotes do Bower
 
-`$ bower install`
+  `$ bower install`
 
 * Execute o projeto via Gulp
 
-`$ gulp`
+  `$ gulp`
 
 ### Observações
 

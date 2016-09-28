@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/libs/css/vendor.min.css">
     <!-- endinject -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/stylesheets/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/all.min.css?1475085823386">
     <!-- endinject -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,12 +33,24 @@
   </head>
   <body>
     <header id="header">
-      <h1>Felippe Medeiros</h1>
+      <div class="container-fluid inner">
+        <h1 class="title-header">Felippe Medeiros</h1>
+      </div>
     </header>
+
     <main id="main">
+      <div class="container-fluid inner">
+        <h2>Nada é <i>absolute</i>, tudo é <i>relative</i>.</h2>
+      </div>
       <ng-view></ng-view>
     </main>
+
     <footer id="footer">
+      <div class="inner">
+        <a href="//github.com/felippem/personal-site" target="_blank">disponível no 
+          <i class="icon fa-github-alt" aria-hidden="true"></i> github
+        </a>
+      </div>
     </footer>
   </body>
   <!-- vendor:js -->

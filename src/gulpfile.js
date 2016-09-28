@@ -12,6 +12,8 @@ var gulp = require('gulp'),
   inject = require('gulp-inject'),
   clean = require('gulp-clean');
 
+var timestamp = new Date().getTime();
+
 /**
  * Task responsável por executar a sincronização com o browser.
  * Use: $ gulp browsersync 
@@ -28,7 +30,7 @@ gulp.task('browsersync', function () {
  * Use: $ gulp css @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('css', function () {
+gulp.task('css', ['sass'], function () {
   return gulp.src('./assets/**/*.css')
     .pipe(concat('all.min.css'))
     .pipe(gutil.env.type === 'production' ? cleancss({ 
@@ -64,10 +66,16 @@ gulp.task('vendor-css', function () {
     .pipe(clean({ force: true }));
 
   return gulp.src(['./bower_components/**/dist/**/*.min.css', 
+    './bower_components/**/**/*.min.css',
     '!./bower_components/**/dist/**/*-theme*'])
     .pipe(rename({ dirname: '' }))
     .pipe(concat('vendor.min.css'))
-    .pipe(gulp.dest('public/libs/css'));
+    .pipe(gulp.dest('public/libs/css'))
+    .on('end', function () {
+      return gulp.src('./bower_components/**/fonts/*.*')
+        .pipe(rename({ dirname: '' }))
+        .pipe(gulp.dest('public/libs/fonts'));
+    });
 });
 
 /**
@@ -85,7 +93,7 @@ gulp.task('default', ['exec']);
  * Use: $ gulp exec @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('exec', ['sass', 'js', 'inject-vendor', 'inject'], function () {
+gulp.task('exec', ['css', 'sass:watch', 'js', 'js:watch', 'inject-vendor', 'inject'], function () {
   return nodemon({
     script: 'server/server.js',
     env: { 'NODE_ENV': 'development' },
@@ -119,7 +127,7 @@ gulp.task('inject', function () {
     'public/**/*.js', 'public/**/*.css'], { read: false, relative: true });
   
   return gulp.src('views/**/index.*')
-    .pipe(inject(sources, { ignorePath: 'public', addRootSlash: true }))
+    .pipe(inject(sources, { ignorePath: 'public', addRootSlash: true, addSuffix: '?' + timestamp }))
     .pipe(gulp.dest(function (file) {
       return file.base;
     }));
@@ -133,7 +141,7 @@ gulp.task('inject', function () {
  * Use: $ gulp js @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('js', ['js:watch'], function () {
+gulp.task('js', function () {
   return gulp.src('./assets/**/*.js')
     .pipe(babel({
       presets: [es2015]
@@ -157,7 +165,7 @@ gulp.task('js:watch', function () {
  * Use: $ gulp sass @optional-parameters
  *  @optional-parameters: --type production
  */
-gulp.task('sass', ['css', 'sass:watch'], function () {
+gulp.task('sass', function () {
   var options = {
     errLogToConsole: false,
     outputStyle: 'compressed'
@@ -177,7 +185,13 @@ gulp.task('sass', ['css', 'sass:watch'], function () {
  * transpilar e sincronizar o browser através do browser-sync.
  * Use: $ gulp sass:watch @optional-parameters
  *  @optional-parameters: --type production
+ *  @optional-parameters: --sync => 
+ *    Ativa a sincronização com o browser, quando os arquivos sass são modificados.
  */
 gulp.task('sass:watch', function () {
-  gulp.watch('./assets/sass/**/*.scss', ['sass', 'browsersync']);
+  if (!gutil.env.sync) {
+    gulp.watch('./assets/sass/**/*.scss', ['css']);
+  } else {
+    gulp.watch('./assets/sass/**/*.scss', ['css', 'browsersync']);
+  }
 });

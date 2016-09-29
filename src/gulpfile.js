@@ -34,7 +34,7 @@ gulp.task('css', ['sass'], function () {
   return gulp.src('./assets/**/*.css')
     .pipe(concat('all.min.css'))
     .pipe(gutil.env.type === 'production' ? cleancss({ 
-      compatibility: 'ie8', 
+      compatibility: '*', // Internet Explorer 9+ 
       keepSpecialComments: 0 }) : gutil.noop())
     .pipe(gulp.dest('./public/stylesheets'));
 });

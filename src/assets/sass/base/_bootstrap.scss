@@ -1,0 +1,22 @@
+/* Override das classes do bootstrap */
+.navbar-default {
+  background-color: _palette(fg-default);
+  border: 0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: _palette(fg-regular);
+}
+
+.navbar-default .navbar-toggle {
+  border: 0;
+}
+
+.navbar-toggle .icon-bar {
+  height: 3px;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}

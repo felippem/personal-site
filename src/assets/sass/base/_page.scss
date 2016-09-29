@@ -1,6 +1,5 @@
 body,
 html {
-  width: 100%;
   height: 100%;
   overflow-x: hidden;
   text-align: center;
@@ -22,8 +21,12 @@ a {
 
 a:hover {
   border-bottom-color: transparent;
-  color: _palette(fg-regular);
+  color: _palette(fg-regular) !important;
   text-decoration: none;
+}
+
+#footer {
+  border-bottom: solid _palette(fg-regular) 4px;
 }
 
 .grow {
@@ -37,8 +40,12 @@ a:hover {
 #header {
   background-color: _palette(fg-default);
 
+  > nav a {
+    border-bottom: none;
+  }
+
   .title-header {
-    font-weight: _font(light);
+    font-weight: _font(regular);
     color: _palette(fg-regular);
     font-size: 1.125em;
     text-transform: uppercase;
@@ -69,7 +76,7 @@ h2 i {
 }
 
 #main {
-  background-color: _palette(fg-default);
+  background-color: _palette(fg-light);
 }
 
 @media screen and (max-width: 800px) {}

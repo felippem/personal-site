@@ -1,22 +1,49 @@
 /* Override das classes do bootstrap */
 .navbar-default {
-  background-color: _palette(fg-default);
+  background-color: transparent;
   border: 0;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: _palette(fg-regular);
+.navbar-default {
+  .navbar-nav {
+    > li {
+      > a {
+        color: inherit;
+      }
+    }
+  }
 }
 
-.navbar-default .navbar-toggle {
-  border: 0;
+.navbar-default {
+  .navbar-toggle {
+    .icon-bar {
+      background-color: _palette(color5);
+    }
+  }
 }
 
-.navbar-toggle .icon-bar {
-  height: 3px;
+.navbar-default {
+  .navbar-toggle {
+    border: 0;
+  }
+}
+
+.navbar-toggle {
+  float: left;
+  margin-right: 0;
+  margin-left: 15px;
+
+  .icon-bar {
+    height: 3px;
+  }
 }
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
   background-color: transparent;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border: 0;
 }

@@ -32,7 +32,7 @@ gulp.task('browsersync', function () {
  */
 gulp.task('css', ['sass'], function () {
   return gulp.src('./assets/**/*.css')
-    .pipe(concat('all.min.css'))
+    .pipe(concat('app.min.css'))
     .pipe(gutil.env.type === 'production' ? cleancss({ 
       compatibility: '*', // Internet Explorer 9+ 
       keepSpecialComments: 0 }) : gutil.noop())
@@ -146,7 +146,7 @@ gulp.task('js', function () {
     .pipe(babel({
       presets: [es2015]
     }))
-    .pipe(concat('all.min.js'))
+    .pipe(concat('app.min.js'))
     .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
     .pipe(gulp.dest('./public/javascripts'));
 });

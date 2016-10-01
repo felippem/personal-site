@@ -4,52 +4,86 @@ html {
   overflow-x: hidden;
   text-align: center;
   font-family: _font(family);
-  font-size: _font(size);
   font-weight: _font(light);
-  color: _palette(fg-bold);
-  background-color: _palette(fg-light-gray);
+  color: _palette(color5);
+  background-color: _palette(default);
 }
 
 a {
-  -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
   border-bottom: dotted 1px;
-  color: _palette(fg-bold);
+  color: _palette(color5);
 }
 
 a:hover {
   border-bottom-color: transparent;
-  color: _palette(fg-regular) !important;
+  color: _palette(color3) !important;
   text-decoration: none;
 }
 
 #footer {
-  border-bottom: solid _palette(fg-regular) 4px;
+  border-bottom: solid _palette(color3) 4px;
 }
 
 .grow {
   transition: all .2s ease-in-out;
-}
 
-.grow:hover {
-  transform: scale(1.1);
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 #header {
-  background-color: _palette(fg-default);
+  color: _palette(color5);
+  background-color: _palette(color2);
 
-  > nav a {
+  a {
     border-bottom: none;
+  }
+
+  .avatar {
+    width: 200px;
+    border: solid _palette(default) 10px;
+  }
+  
+ .icons {
+    a {
+      -moz-transition: background-color 0.2s ease-in-out;
+      -webkit-transition: background-color 0.2s ease-in-out;
+      -ms-transition: background-color 0.2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
+      padding: 8px;
+      border-radius: 6px;
+      
+      &:hover {
+        background-color: _palette(default);
+      }
+    }
+
+    .icon {
+      font-size: 1.250em;
+    }
+
+    > li {
+      margin-right: 2px;
+      margin-left: 2px;
+      padding: 0;
+    }
   }
 
   .title-header {
     font-weight: _font(regular);
-    color: _palette(fg-regular);
-    font-size: 1.125em;
+    color: _palette(color1);
+    font-size: 1.571em;
     text-transform: uppercase;
   }
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 1em;
 }
 
 h2 i {
@@ -57,14 +91,13 @@ h2 i {
 }
 
 .inner {
-  padding: 5em 3em 5em 3em;
+  padding: 3em;
 }
 
 .icon {
   position: relative;
   text-decoration: none;
-  border-bottom: none;
-  
+
   &:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -75,8 +108,8 @@ h2 i {
   }
 }
 
-#main {
-  background-color: _palette(fg-light);
+p {
+  font-size: 1.143em;
 }
 
-@media screen and (max-width: 800px) {}
+@media screen and (max-width: 992px) {}

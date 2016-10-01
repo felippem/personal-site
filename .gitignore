@@ -43,4 +43,4 @@ bower_components
 # Optional files
 **/assets/**/processed.css
 **/public/libs
-**/public/**/all.min.*
+**/public/**/app.min.*

@@ -10,7 +10,8 @@ var gulp = require('gulp'),
   gutil = require('gulp-util'),
   browsersync = require('browser-sync').create(),
   inject = require('gulp-inject'),
-  clean = require('gulp-clean');
+  clean = require('gulp-clean'),
+  autoprefixer = require('gulp-autoprefixer');
 
 var timestamp = new Date().getTime();
 
@@ -173,6 +174,9 @@ gulp.task('sass', function () {
 
   return gulp.src('./assets/sass/*.scss')
     .pipe(sass(gutil.env.type === 'production' ? options : null).on('error', sass.logError))
+    .pipe(autoprefixer({
+      cascade: false
+    }))
     .pipe(rename('processed.css'))
     .pipe(gulp.dest('./assets/stylesheets'))
     .pipe(browsersync.reload({

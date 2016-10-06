@@ -10,18 +10,19 @@ html {
 }
 
 a {
-  -moz-transition: color 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
   border-bottom: dotted 1px;
   color: _palette(color5);
+  transition: color 0.2s ease-in-out;
 }
 
 a:hover {
   border-bottom-color: transparent;
-  color: _palette(color3) !important;
+  color: _palette(color2) !important;
   text-decoration: none;
+}
+
+a:focus {
+  color: initial;
 }
 
 #footer {
@@ -37,34 +38,99 @@ a:hover {
 }
 
 #header {
+  position: relative;
   color: _palette(color5);
-  background-color: _palette(color2);
+  background: _palette(color2) url(/images/bg-header.jpg) no-repeat 0 -150px;
 
   a {
-    border-bottom: none;
+    color: _palette(color3);
   }
 
   .avatar {
     width: 200px;
-    border: solid _palette(default) 10px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 0;
+    font-size: 4em;
+    color: _palette(color4);
+    background-color: _palette(color3);
+
+    &:before {
+      width: 100%;
+      content: "\f007";
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 32% 0 0 0;
+    }
+
+    > img {
+      width: 200px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: solid _palette(default) 6px;
+    }
+  }
+
+  #g1, #g2, #g3, #g4 {
+    opacity: $opacityGeometrics;
+  }
+
+  #g1 {
+    stroke: _palette(triangle);
+  }
+
+  #g2 {
+    stroke: _palette(circle);
+  }
+
+  #g3 {
+    stroke: _palette(square);
+  }
+
+  #g4 {
+    stroke: _palette(cross);
   }
   
  .icons {
     a {
-      -moz-transition: background-color 0.2s ease-in-out;
-      -webkit-transition: background-color 0.2s ease-in-out;
-      -ms-transition: background-color 0.2s ease-in-out;
-      transition: background-color 0.2s ease-in-out;
-      padding: 8px;
-      border-radius: 6px;
+      padding: 8px 8px 28px;
+      position: relative;
+      border-bottom: none;
+
+      &:after, &:before {
+        content: "";
+        width: 0;
+        height: 3px;
+        position: absolute;
+        bottom: 16px;
+        right: 0;
+        left: auto;
+        z-index: 2;
+      }
       
-      &:hover {
-        background-color: _palette(default);
+      &:after {
+        transition: all .25s cubic-bezier(.694, .048, .335, 1);
+        background-color: _palette(color1);
+      }
+
+      &:before {
+        transition: all .25s cubic-bezier(.694, .048, .335, 1) .15s;
+        background-color: _palette(color3);
+      }
+
+      &:hover:after, &:hover:before {
+        width: 100%;
+        left: 0;
       }
     }
 
     .icon {
-      font-size: 1.250em;
+      font-size: 1.600em;
     }
 
     > li {
@@ -76,9 +142,32 @@ a:hover {
 
   .title-header {
     font-weight: _font(regular);
-    color: _palette(color1);
+    color: _palette(color4);
     font-size: 1.571em;
     text-transform: uppercase;
+  }
+  svg {
+    position: absolute;
+    z-index: 2;
+
+    @for $i from 1 through $quantityGeometricsHeader {
+      &:nth-child(#{$i}) {  
+        @if $i%2 == 0 {
+          width: 10%;
+          top: 40%;
+        } @else {
+          width: 5%;
+          top: 45%;
+        }
+        @if $i == 1 {
+          left: 16%;
+        } @else {
+          left: #{-10% + ($i * 10) * 2};
+        }
+        
+        animation: roll-right 9s infinite linear alternate-reverse;
+      }
+    }
   }
 }
 
@@ -99,12 +188,12 @@ h2 i {
   text-decoration: none;
 
   &:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 }
 

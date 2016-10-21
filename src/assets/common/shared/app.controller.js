@@ -1,6 +1,5 @@
 (function () {
   'use strict';
-
   angular.module('app')
     .config(['$stateProvider', function ($stateProvider) {
       $stateProvider
@@ -17,11 +16,11 @@
           abstract: true
         });
     }])
-    .controller('AppController', AppController);
+    .controller('AppController', ['$state', '$scope', AppController]);
 
-  function AppController($state, $scope) {
+  function AppController ($state, $scope) {
     var appCtrl = this;
 
-    $scope.urlPhotoProfile = '//avatars2.githubusercontent.com/u/660003?v=3&s=466';
+    appCtrl.urlPhotoProfile = '//avatars2.githubusercontent.com/u/660003?v=3&s=466';
   }
 })();

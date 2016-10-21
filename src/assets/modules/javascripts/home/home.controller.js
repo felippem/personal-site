@@ -1,6 +1,5 @@
 (function () {
   'use strict';
-  
   angular.module('app.home')
     .config(['$stateProvider', function ($stateProvider) {      
       $stateProvider
@@ -19,9 +18,9 @@
           }
         });
     }])
-    .controller('HomeController', HomeController);
+    .controller('HomeController', ['$state', '$scope', HomeController]);
 
-  function HomeController ($state) {
+  function HomeController ($state, $scope) {
     var homeCtrl = this;
   }
 })();

@@ -36,7 +36,7 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   Para executar o projeto em modo deploy (js e css minificados), execute:
 
-  `$ gulp --type production 
+  `$ gulp --type production`
 
 
 ### Observações

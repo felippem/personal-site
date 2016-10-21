@@ -34,7 +34,9 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   `$ bower install`
 
-* Execute o projeto via Gulp
+* Execute o projeto
+
+  Via Gulp:
 
   `$ gulp`
 
@@ -42,6 +44,13 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   `$ gulp --type production`
 
+  Via NPM:
+
+  `$ gulp css`
+  `$ gulp js`
+  `$ gulp inject-vendor`
+  `$ gulp inject`
+  `$ npm start`
 
 ### Observações
 

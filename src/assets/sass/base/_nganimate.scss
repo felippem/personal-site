@@ -1,0 +1,10 @@
+.view-content {
+  &.ng-enter {
+    transition: .5s;
+    opacity: 0;
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+  }
+}

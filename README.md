@@ -47,9 +47,13 @@ Com o ambiente devidamente configurado, execute os comandos:
   Via NPM:
 
   `$ gulp css`
+
   `$ gulp js`
+  
   `$ gulp inject-vendor`
+  
   `$ gulp inject`
+  
   `$ npm start`
 
 ### Observações

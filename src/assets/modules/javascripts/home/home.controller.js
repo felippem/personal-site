@@ -4,7 +4,7 @@
     .config(['$stateProvider', function ($stateProvider) {      
       $stateProvider
         .state('app.home', {
-          url: '',
+          url: '/inicio',
           views: {
             'content@': {
               templateUrl: 'modules/templates/home/index.html',

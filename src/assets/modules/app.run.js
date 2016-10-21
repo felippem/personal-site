@@ -6,5 +6,7 @@
     $rootScope.$on('$stateChangeSuccess', function () {
       $rootScope.stateTitle = $state.current.data.stateTitle;
     });
+
+    $state.go('app.home');
   }
 })();

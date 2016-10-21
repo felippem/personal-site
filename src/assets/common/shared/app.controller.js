@@ -8,8 +8,8 @@
           views: {
             'profile': {
               templateUrl: 'modules/templates/common/shared/profile.html',
-              controller: 'AppController',
-              controllerAs: 'appCtrl'
+              controller: 'ProfileController',
+              controllerAs: 'profileCtrl'
             },
             'content': {}
           },
@@ -20,7 +20,5 @@
 
   function AppController ($state, $scope) {
     var appCtrl = this;
-
-    appCtrl.urlPhotoProfile = '//avatars2.githubusercontent.com/u/660003?v=3&s=466';
   }
 })();

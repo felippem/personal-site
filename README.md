@@ -34,6 +34,11 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   `$ gulp`
 
+  Para executar o projeto em modo deploy (js e css minificados), execute:
+
+  `$ gulp --type production 
+
+
 ### Observações
 
 Conforme citado, este projeto está em desenvolvimento, portanto, o roteiro de instalação sofrerá alterações constantes.
@@ -41,5 +46,4 @@ Conforme citado, este projeto está em desenvolvimento, portanto, o roteiro de i
 ### Contribuições
 
 Contribua com códigos. Este projeto precisa de você para acrescentar conhecimento no dia-a-dia de outras pessoas.
-
 Se preferir, me encontre no twitter <a href="//twitter.com/felippem" target="_blank">@felippem</a>.

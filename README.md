@@ -26,6 +26,10 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   `$ npm install`
 
+  Para publicação em produção, recomenda-se:
+
+  `$ npm install --production`
+
 * Instale os pacotes do Bower
 
   `$ bower install`
@@ -34,7 +38,7 @@ Com o ambiente devidamente configurado, execute os comandos:
 
   `$ gulp`
 
-  Para executar o projeto em modo deploy (js e css minificados), execute:
+  ou execute com os arquivos em modo minificado:
 
   `$ gulp --type production`
 

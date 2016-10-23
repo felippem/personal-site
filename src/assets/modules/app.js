@@ -2,8 +2,8 @@
   'use strict';
   angular.module('app', [
     'ui.router',
-    'ngResource',
     'ngAnimate',
+    'restangular',
     'app.home',
     'app.contact'
   ]);

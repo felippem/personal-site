@@ -1,12 +1,13 @@
 (function () {
   'use strict';
-  angular.module('app').run(['$rootScope', '$state', run]);
+  angular.module('app').run(['profileService', '$rootScope', '$state', run]);
   
-  function run ($rootScope, $state) {
+  function run (profileService, $rootScope, $state) {
     $rootScope.$on('$stateChangeSuccess', function () {
       $rootScope.stateTitle = $state.current.data.stateTitle;
     });
 
     $state.go('app.home');
+    profileService.getUserGithub();
   }
 })();

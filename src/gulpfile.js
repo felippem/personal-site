@@ -49,9 +49,8 @@ gulp.task('vendor-js', function () {
     .pipe(clean({ force: true }));
 
   return gulp.src(['./bower_components/jquery/*.min.js',
-    './bower_components/**/dist/**/*.min.js', 
     './bower_components/angular*/**/*.min.js',
-    './bower_components/requirejs/*.js',
+    './bower_components/**/dist/**/*.min.js', 
     '!./bower_components/**/*slim.*',
     '!./bower_components/**/*migrate.*'])
     .pipe(rename({ dirname: '' }))
@@ -145,7 +144,7 @@ gulp.task('inject', function () {
  */
 gulp.task('js', function () {
   return gulp.src(['./assets/modules/app.js', './assets/modules/app.run.js', 
-    './assets/**/*.module.js', './assets/**/*.controller.js'])
+    './assets/**/*.module.js', './assets/**/*.service.js', './assets/**/*.controller.js'])
     .pipe(babel({
       presets: [es2015]
     }))

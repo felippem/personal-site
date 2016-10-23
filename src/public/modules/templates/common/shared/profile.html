@@ -1,9 +1,9 @@
 <figure>
   <a href="#" ui-sref="app.home" class="icon avatar img-circle" title="Voltar ao início">
-    <img ng-src="{{profileCtrl.urlPhotoProfile}}" class="img-circle">
+    <img ng-src="{{profileCtrl.service.get().avatar_url}}" class="img-circle">
   </a>
 </figure>
-<h1 class="title-header">Hi, I'm Felippe Medeiros</h1>
+<h1 class="title-header">Hi, I'm {{profileCtrl.service.get().name}}</h1>
 <ul class="list-inline icons">
   <li>
     <a href="//github.com/felippem/personal-site" target="_blank" title="GitHub">

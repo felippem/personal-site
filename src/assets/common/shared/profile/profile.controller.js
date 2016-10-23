@@ -1,11 +1,11 @@
 (function () {
   'use strict';
   angular.module('app')
-    .controller('ProfileController', [ '$state', '$scope', ProfileController]);
+    .controller('ProfileController', [ 'profileService', '$state', '$scope', ProfileController]);
 
-  function ProfileController($state, $scope) {
+  function ProfileController(profileService, $state, $scope) {
     var profileCtrl = this;
     
-    profileCtrl.urlPhotoProfile = '//avatars2.githubusercontent.com/u/660003?v=3&s=466';
+    profileCtrl.service = profileService;
   }
 })();

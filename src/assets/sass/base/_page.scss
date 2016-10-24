@@ -26,7 +26,11 @@ a:focus {
 }
 
 #footer {
-  background-color: _palette(color3);
+  background-color: _palette(default);
+
+  .list-inline {
+    margin: 10px 0 10px 0;
+  }
 }
 
 .grow {

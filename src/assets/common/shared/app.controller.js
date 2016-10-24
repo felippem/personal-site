@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   angular.module('app')
-    .config(['cfpLoadingBarProvider', '$stateProvider', function (cfpLoadingBarProvider, $stateProvider) {
+    .config(['$stateProvider', function ($stateProvider) {
       $stateProvider
         .state('app', {
           url: '',
@@ -15,8 +15,6 @@
           },
           abstract: true
         });
-
-        cfpLoadingBarProvider.includeSpinner = false;
     }])
     .controller('AppController', ['$state', '$scope', AppController]);
 

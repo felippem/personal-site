@@ -7,5 +7,7 @@
     'restangular',
     'app.home',
     'app.contact'
-  ]);
+  ]).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+      cfpLoadingBarProvider.includeSpinner = false;
+  }]);
 })();

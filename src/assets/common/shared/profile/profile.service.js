@@ -4,16 +4,14 @@
     .factory('profileService', ['Restangular', profileService]);
 
   function profileService (Restangular) {
-    var profile = {
-      avatar_url: null
-    };
+    var profile;
 
     function get () {
       return profile;
     }
     
     function getUserGithub () {
-      Restangular.oneUrl('github', '//api.github.com/users/felippem').get().then(function (response) {
+      Restangular.oneUrl('github', 'https://api.github.com/users/felippem').get().then(function (response) {
         profile = Restangular.stripRestangular(response);
       });
     }

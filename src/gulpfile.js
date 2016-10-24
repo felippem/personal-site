@@ -51,6 +51,7 @@ gulp.task('vendor-js', function () {
   return gulp.src(['./bower_components/jquery/*.min.js',
     './bower_components/angular*/**/*.min.js',
     './bower_components/**/dist/**/*.min.js', 
+    './bower_components/**/*.min.js',
     '!./bower_components/**/*slim.*',
     '!./bower_components/**/*migrate.*'])
     .pipe(rename({ dirname: '' }))

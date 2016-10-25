@@ -5,13 +5,13 @@ html {
   text-align: center;
   font-family: _font(family);
   font-weight: _font(light);
-  color: _palette(color5);
-  background-color: _palette(default);
+  color: _palette(color3);
+  background: _palette(color1) url(/images/bg-header.jpg) no-repeat 0 0px;
 }
 
 a {
   border-bottom: dotted 1px;
-  color: _palette(color5);
+  color: _palette(color4);
   transition: color 0.2s ease-in-out;
 }
 
@@ -26,7 +26,7 @@ a:focus {
 }
 
 #footer {
-  background-color: _palette(default);
+  background-color: _palette(color5);
 
   .list-inline {
     margin: 10px 0 10px 0;
@@ -44,23 +44,63 @@ a:focus {
 #header {
   position: relative;
   color: _palette(color5);
-  background: _palette(color2) url(/images/bg-header.jpg) no-repeat 0 -150px;
 
   a {
     color: _palette(color3);
   }
 
+  .title-header {
+    font-weight: _font(light);
+    color: _palette(color3);
+    font-size: 1.375em;
+    text-transform: uppercase;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 1em;
+  color: _palette(color3);
+  font-weight: _font(light);
+}
+
+h1 {
+  color: _palette(color2);
+}
+
+.inner {
+  padding: 3em;
+}
+
+.icon {
+  position: relative;
+  text-decoration: none;
+
+  &:before {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+main {
+  background-color: _palette(color1);
+}
+
+.profile {
   .avatar {
-    width: 200px;
-    height: 200px;
+    width: 208px;
+    height: 208px;
     margin: 0 auto;
     position: relative;
     display: block;
-    border: 0;
     font-size: 4em;
     color: _palette(color4);
+    border: 4px solid _palette(default);
     background-color: _palette(color3);
-    box-shadow: 0 0 55px -11px _palette(color3);
+    box-shadow: 0 0 85px -11px _palette(color3);
 
     &:before {
       width: 100%;
@@ -99,7 +139,7 @@ a:focus {
       
       &:after {
         transition: all .25s cubic-bezier(.694, .048, .335, 1);
-        background-color: _palette(color1);
+        background-color: _palette(color2);
       }
 
       &:before {
@@ -123,43 +163,10 @@ a:focus {
       padding: 0;
     }
   }
-
-  .title-header {
-    font-weight: _font(regular);
-    color: _palette(color4);
-    font-size: 1.571em;
-    text-transform: uppercase;
-  }
-}
-
-h1, h2, h3, h4 {
-  margin-bottom: 1em;
-}
-
-h2 i {
-  font-weight: _font(bold);
-}
-
-.inner {
-  padding: 3em;
-}
-
-.icon {
-  position: relative;
-  text-decoration: none;
-
-  &:before {
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-transform: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  }
 }
 
 p {
-  font-size: 1.143em;
+  font-size: 1.125em;
 }
 
 @media screen and (max-width: 992px) {}

@@ -51,7 +51,7 @@ a:focus {
 
   .title-header {
     font-weight: _font(light);
-    color: _palette(color3);
+    color: _palette(color4);
     font-size: 1.375em;
     text-transform: uppercase;
   }
@@ -64,7 +64,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  color: _palette(color2);
+  color: _palette(color3);
 }
 
 .inner {
@@ -97,9 +97,8 @@ main {
     position: relative;
     display: block;
     font-size: 4em;
-    color: _palette(color4);
     border: 4px solid _palette(default);
-    background-color: _palette(color3);
+    background-color: _palette(color1);
     box-shadow: 0 0 85px -11px _palette(color3);
 
     &:before {
@@ -167,6 +166,35 @@ main {
 
 p {
   font-size: 1.125em;
+}
+
+.phrase {
+  font-weight: _font(regular);
+  color: _palette(color1);
+  background-color: _palette(default);
+
+  p {
+    font-size: 2.143em;
+  }
+}
+
+.skill {
+  background-color: _palette(color1);
+
+  .icon {
+    margin: 20px 0;
+    padding: 35px;
+    font-size: 3em;
+    color: _palette(color4);
+    border: dotted 4px _palette(color2);
+    border-radius: 50%;
+    background-color: _palette(color5);
+    box-shadow: 0 0 85px -11px _palette(color1);
+  }
+
+  .lists {
+    font-size: 1.286em;
+  }
 }
 
 @media screen and (max-width: 992px) {}

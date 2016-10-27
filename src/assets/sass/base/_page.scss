@@ -59,6 +59,7 @@ a:focus {
 
 h1, h2, h3, h4 {
   margin-bottom: 1em;
+  font-family: 'Merriweather';
   color: _palette(color3);
   font-weight: _font(light);
 }
@@ -175,7 +176,7 @@ p {
 .phrase {
   font-weight: _font(regular);
   color: _palette(color4);
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .2);
 
   p {
     font-size: 1.286em;
@@ -193,7 +194,6 @@ p {
     border: dotted 4px _palette(color2);
     border-radius: 50%;
     background-color: transparent;
-    // box-shadow: 0 0 49px -14px _palette(color2);
   }
 
   .lists {
@@ -201,4 +201,11 @@ p {
   }
 }
 
-@media screen and (max-width: 992px) {}
+@media screen and (max-width: 992px) {
+  #footer {
+    .text-left,
+    .text-right {
+      text-align: center;
+    }
+  }
+}

@@ -52,7 +52,6 @@ gulp.task('vendor-js', function () {
     './bower_components/angular*/**/*.min.js',
     './bower_components/**/dist/**/*.min.js', 
     './bower_components/**/*.min.js',
-    '!./bower_components/**/bootstrap*.min.js',
     '!./bower_components/**/*slim.*',
     '!./bower_components/**/*migrate.*'])
     .pipe(rename({ dirname: '' }))

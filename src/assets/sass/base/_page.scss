@@ -64,11 +64,19 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  color: _palette(color3);
+  color: _palette(color2);
+
+  &.default {
+    color: inherit;
+  }
 }
 
 .inner {
   padding: 3em;
+}
+
+.introduction {
+  background-color: _palette(color1);
 }
 
 .icon {
@@ -83,10 +91,6 @@ h1 {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
-}
-
-main {
-  background-color: _palette(color1);
 }
 
 .profile {
@@ -170,11 +174,11 @@ p {
 
 .phrase {
   font-weight: _font(regular);
-  color: _palette(color1);
-  background-color: _palette(default);
+  color: _palette(color4);
+  background-color: rgba(255, 255, 255, .3);
 
   p {
-    font-size: 2.143em;
+    font-size: 1.286em;
   }
 }
 
@@ -185,11 +189,11 @@ p {
     margin: 20px 0;
     padding: 35px;
     font-size: 3em;
-    color: _palette(color4);
+    color: _palette(color3);
     border: dotted 4px _palette(color2);
     border-radius: 50%;
-    background-color: _palette(color5);
-    box-shadow: 0 0 85px -11px _palette(color1);
+    background-color: transparent;
+    // box-shadow: 0 0 49px -14px _palette(color2);
   }
 
   .lists {

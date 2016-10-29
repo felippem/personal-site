@@ -1,12 +1,16 @@
 body,
 html {
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   text-align: center;
   font-family: _font(family);
   font-weight: _font(light);
   color: _palette(color3);
   background: _palette(color1) url(/images/bg-header.jpg) no-repeat 50% 0;
+}
+
+body {
+  overflow-y: auto;
 }
 
 a {

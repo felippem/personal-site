@@ -18,7 +18,7 @@ O projeto está sendo desenvolvido com o objetivo de compartilhar o meu perfil p
 
 ### Instalação
 
-**Para executar o projeto, certifique-se de que o ambiente esteja devidamente configurado: Node.js, NPM, Bower e Gulp.**
+**Para executar o projeto, certifique-se de que o ambiente esteja devidamente configurado: Node.js, NPM, Bower, Gulp e Git.**
 
 Com o ambiente devidamente configurado, execute os comandos:
 
@@ -55,6 +55,10 @@ Com o ambiente devidamente configurado, execute os comandos:
   `$ gulp inject`
   
   `$ npm start`
+
+* Acesse o site via browser
+
+  http://localhost:3000
 
 ### Observações
 

@@ -6,7 +6,7 @@ html {
   font-family: _font(family);
   font-weight: _font(light);
   color: _palette(color3);
-  background: _palette(color1) url(/images/bg-header.jpg) no-repeat 0 0px;
+  background: _palette(color1) url(/images/bg-header.jpg) no-repeat 50% 0;
 }
 
 a {

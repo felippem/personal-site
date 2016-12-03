@@ -8,14 +8,12 @@
       mongoose.connection.close();
     },
     connect: function () {
-      var uri = 'mongodb://' + '192.168.0.100:27017' + '/felippe';
+      var uri = process.env.MONGO_URI || 'mongodb://felippe:felippe@192.168.0.100:27017/felippe';
       
       var options = { 
         db: { native_parser: true }, 
         server: { poolSize: 5 },
-        replset: { rs_name: 'myReplicaSetName' },
-        user: 'felippe',
-        pass: 'felippe'
+        replset: { rs_name: 'myReplicaSetName' }
       };
 
       mongoose.connection.on('connected', function () {  

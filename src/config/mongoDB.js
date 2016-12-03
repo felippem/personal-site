@@ -8,7 +8,7 @@
       mongoose.connection.close();
     },
     connect: function () {
-      var uri = 'mongodb://' + '10.0.43.99:27017' + '/felippe';
+      var uri = 'mongodb://' + '192.168.0.100:27017' + '/felippe';
       
       var options = { 
         db: { native_parser: true }, 

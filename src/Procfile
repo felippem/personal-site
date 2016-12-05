@@ -1,1 +1,1 @@
-web: gulp css --type production && gulp js --type production && gulp inject-vendor --type production && gulp inject --type production && npm start
+web: bower install && gulp css --type production && gulp js --type production && gulp inject-vendor --type production && gulp inject --type production && npm start

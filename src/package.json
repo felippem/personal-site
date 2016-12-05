@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "ejs": "~2.4.1",
     "express": "~4.13.4",
+    "nodemon": "^1.10.2",
     "mongoose": "^4.7.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
@@ -30,7 +31,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
-    "jshint": "^2.9.3",
-    "nodemon": "^1.10.2"
+    "jshint": "^2.9.3"
   }
 }

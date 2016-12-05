@@ -27,10 +27,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "browser-sync": "^2.16.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.16.0",
     "jshint": "^2.9.3"
   }
 }

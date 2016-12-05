@@ -9,7 +9,6 @@
     },
     connect: function () {
       var uri = process.env.MONGO_URI || 'mongodb://felippe:felippe@192.168.0.100:27017/felippe';
-      console.log('hero mongo = '+ process.env.MONGO_URI);
 
       var options = { 
         db: { native_parser: true }, 

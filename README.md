@@ -61,7 +61,7 @@ Com o ambiente devidamente configurado, execute os comandos:
 
 ### Observações
 
-**Para ambiente de produção, a URI do MongoDB deve ser configurada como variável de ambiente.
+**Para ambiente de produção, a URI do MongoDB deve ser configurada como variável de ambiente.**
 
 * MONGO_URI
 

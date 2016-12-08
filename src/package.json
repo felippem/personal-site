@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server/server.js",
-    "postinstall": "bower install && gulp deploy --type production"
+    "postinstall": "bower install && gulp css --type production && gulp js --type production && gulp inject-vendor --type production && gulp inject --type production"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

@@ -89,6 +89,14 @@ gulp.task('vendor-css', function () {
 gulp.task('default', ['exec']);
 
 /**
+ * Task responsável por simplificar a execução de todas as tasks
+ * necessárias para o contexto de deploy.
+ * Use> $ gulp deploy @optional-parameters
+ *  @optional-parameters: --type production
+ */
+gulp.task('deploy', ['css', 'js', 'inject-vendor', 'inject']);
+
+/**
  * Task responsável por executar o servidor através do Nodemon e 
  * todas as demais tasks responsáveis por compor os arquivos necessários
  * para execução do site.

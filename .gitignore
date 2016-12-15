@@ -42,6 +42,5 @@ bower_components
 
 # Optional files
 **/assets/**/processed.css
-**/public/libs
-**/public/**/app.min.*
-src/.gitignore
+src/public/libs
+src/public/**/app.min.*

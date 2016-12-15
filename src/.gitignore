@@ -39,3 +39,8 @@ bower_components
 
 # User settings
 .vscode
+
+# Optional files and folders
+**/assets/**/processed.css
+**/public/libs
+**/public/**/app.min.*

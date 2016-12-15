@@ -82,7 +82,7 @@ gulp.task('vendor-css', function () {
 
 /**
  * Task responsável por executar a task @exec e simplificar 
- * a forma de execução das tasks.
+ * a forma de execução das tasks no ambiente de desenvolvimento.
  * Use: $ gulp @optional-parameters
  *  @optional-parameters: --type production
  */
@@ -91,10 +91,19 @@ gulp.task('default', ['exec']);
 /**
  * Task responsável por simplificar a execução de todas as tasks
  * necessárias para o contexto de deploy.
- * Use> $ gulp deploy @optional-parameters
- *  @optional-parameters: --type production
+ * Use: $ gulp deploy @parameters
+ *  @parameters: --type production => Transpila, minifica e concatena os arquivos pertinentes
  */
-gulp.task('deploy', ['css', 'js', 'inject-vendor', 'inject']);
+gulp.task('deploy', ['css', 'js', 'inject-vendor', 'inject'], function () {
+  console.log("Copying files to the folder 'build'...");
+
+  return gulp.src(['bin/**', 'config/**', 'controllers/**', 
+    'models/**', 'public/**', 'routes/**', 
+    'server/**', 'views/**', 'app.js', 'package.json', 
+    'Procfile', '.gitignore'], { 
+      base: './' 
+    }).pipe(gulp.dest('../dist', { overwrite: true }));
+});
 
 /**
  * Task responsável por executar o servidor através do Nodemon e 

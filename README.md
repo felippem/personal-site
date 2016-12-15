@@ -14,6 +14,7 @@ O projeto foi desenvolvido com o objetivo de compartilhar o meu perfil profissio
 * Gulp
 * SASS
 * NPM & Bower
+* Heroku
 
 ### Instalação
 

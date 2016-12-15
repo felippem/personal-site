@@ -99,8 +99,7 @@ gulp.task('deploy', ['css', 'js', 'inject-vendor', 'inject'], function () {
 
   return gulp.src(['bin/**', 'config/**', 'controllers/**', 
     'models/**', 'public/**', 'routes/**', 
-    'server/**', 'views/**', 'app.js', 'package.json', 
-    'Procfile', '.gitignore'], { 
+    'server/**', 'views/**', 'app.js', 'package.json'], { 
       base: './' 
     }).pipe(gulp.dest('../dist', { overwrite: true }));
 });
